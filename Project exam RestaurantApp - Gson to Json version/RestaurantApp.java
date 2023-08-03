@@ -11,7 +11,7 @@ public class RestaurantApp {
       
        
         File file = new File("products.json");
-        jsonStorage.getELementAsProduct(file);
+        JSONStorage.getELementAsProduct(file);
         
             
         System.out.println("\n");
@@ -19,11 +19,11 @@ public class RestaurantApp {
 
         Stock stock = new Stock();
         stock.addItem( 
-            new Item<>(jsonStorage.productsList.get(0), jsonStorage.productsList.get(0).getQuantity()));
+            new Item<>(JSONStorage.productsList.get(0), JSONStorage.productsList.get(0).getQuantity()));
         stock.addItem( 
-            new Item<>(jsonStorage.productsList.get(1),jsonStorage.productsList.get(1).getQuantity()));
+            new Item<>(JSONStorage.productsList.get(1),JSONStorage.productsList.get(1).getQuantity()));
         stock.addItem(
-            new Item<>(jsonStorage.productsList.get(2),jsonStorage.productsList.get(2).getQuantity()));
+            new Item<>(JSONStorage.productsList.get(2),JSONStorage.productsList.get(2).getQuantity()));
 
         System.out.println("Initial Stock: ");
         System.out.println(stock);
@@ -69,10 +69,10 @@ public class RestaurantApp {
                     if(quantityInput <0 ) {
                         throw new  Exception("ERROR: amount can't be negative");
                        
-                    } else if(quantityInput > jsonStorage.productsList.get(0).getQuantity()){
+                    } else if(quantityInput > JSONStorage.productsList.get(0).getQuantity()){
                         throw new Exception("ERROR: you have exceeded the limit quantity");
                     }
-                    Item<Product> item1 = new Item<>( jsonStorage.productsList.get(0), quantityInput );
+                    Item<Product> item1 = new Item<>( JSONStorage.productsList.get(0), quantityInput );
                         order.addItem(item1);
                     
                     
@@ -83,20 +83,20 @@ public class RestaurantApp {
                     if(quantityInput < 0  ){
                         throw new  Exception("ERROR: amount can't be negative");
                            
-                    } else if(quantityInput > jsonStorage.productsList.get(0).getQuantity()){
+                    } else if(quantityInput > JSONStorage.productsList.get(0).getQuantity()){
                         throw new Exception("ERROR: you have exceeded the limit quantity");
                     } 
-                    Item<Product> item2 = new Item<>(jsonStorage.productsList.get(1),quantityInput );
+                    Item<Product> item2 = new Item<>(JSONStorage.productsList.get(1),quantityInput );
                         order.addItem(item2);
 
                 } else if (chosenProduct.equals((Byte.parseByte("3")))) {
 
                     if(quantityInput <0  ){
                         throw new  Exception("ERROR: amount can't be negative");   
-                    } else if(quantityInput > jsonStorage.productsList.get(0).getQuantity()){
+                    } else if(quantityInput > JSONStorage.productsList.get(0).getQuantity()){
                         throw new Exception("ERROR: you have exceeded the limit quantity");
                     } 
-                    Item<Product> item3 = new Item<>( jsonStorage.productsList.get(2), quantityInput );
+                    Item<Product> item3 = new Item<>( JSONStorage.productsList.get(2), quantityInput );
                        order.addItem(item3);
                         
                 }
@@ -121,10 +121,15 @@ public class RestaurantApp {
             
            
 
-            jsonStorage.copyFile("products.json", "products_old.json");
-            jsonStorage.createOrderJsonFile(order);
+            JSONStorage.copyFile("products.json", "products_old.json");
 
-            //jsonStorage.updateProductJsonFile(stock);
+            JSONOrder jsonOrder = new JSONOrder(order.getOwner(),order.getItems());
+            JSONStorage.createOrderJsonFile(jsonOrder);
+
+            JSONStorage.updateProductsJsonFile(stock);
+
+
+            
 
             
 
@@ -132,13 +137,10 @@ public class RestaurantApp {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-        
-
-        
         
 
     }
 }
+
 
     
