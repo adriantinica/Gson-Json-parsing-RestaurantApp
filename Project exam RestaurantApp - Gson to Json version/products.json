@@ -1,29 +1,37 @@
-[ 
-  {
-    "id":1,
-    "name":"Pizza",
-    "price":{
-        "amount":100,
-        "currency":"MDL"
+{
+  "items": [
+    {
+      "value": {
+        "id": 1,
+        "name": "Pizza",
+        "price": {
+          "amount": 100,
+          "currency": "MDL"
+        }
+      },
+      "quantity": 1
     },
-    "available":5
-  },
-  {
-    "id":2,
-    "name":"Soup",
-    "price":{
-        "amount":45,
-        "currency":"MDL"
+    {
+      "value": {
+        "id": 2,
+        "name": "Soup",
+        "price": {
+          "amount": 45,
+          "currency": "MDL"
+        }
+      },
+      "quantity": 1
     },
-    "available":3
-  },
-  {
-    "id":3,
-    "name":"Salad",
-    "price":{
-        "amount":35,
-        "currency":"MDL"
-    },
-    "available":2
-  }
-]
+    {
+      "value": {
+        "id": 3,
+        "name": "Salad",
+        "price": {
+          "amount": 35,
+          "currency": "MDL"
+        }
+      },
+      "quantity": 1
+    }
+  ]
+}
