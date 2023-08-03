@@ -1,63 +1,8 @@
 {
   "owner": {
-    "name": "adr",
-    "phoneNumber": 900
+    "name": "John/Doe",
+    "phoneNumber": 123456789
   },
-  "totalCost": {
-    "amount": 200,
-    "currency": "MDL"
-  },
-  "stock": {
-    "items": [
-      {
-        "value": {
-          "id": 1,
-          "name": "Pizza",
-          "price": {
-            "amount": 100,
-            "currency": "MDL"
-          },
-          "quantity": 5
-        },
-        "quantity": 3
-      },
-      {
-        "value": {
-          "id": 2,
-          "name": "Soup",
-          "price": {
-            "amount": 45,
-            "currency": "MDL"
-          },
-          "quantity": 3
-        },
-        "quantity": 3
-      },
-      {
-        "value": {
-          "id": 3,
-          "name": "Salad",
-          "price": {
-            "amount": 35,
-            "currency": "MDL"
-          },
-          "quantity": 2
-        },
-        "quantity": 2
-      }
-    ]
-  },
-  "orderList": [
-    {
-      "id": 1,
-      "name": "Pizza",
-      "price": {
-        "amount": 100,
-        "currency": "MDL"
-      },
-      "quantity": 5
-    }
-  ],
   "items": [
     {
       "value": {
@@ -66,10 +11,31 @@
         "price": {
           "amount": 100,
           "currency": "MDL"
-        },
-        "quantity": 5
+        }
+      },
+      "quantity": 4
+    },
+    {
+      "value": {
+        "id": 2,
+        "name": "Soup",
+        "price": {
+          "amount": 45,
+          "currency": "MDL"
+        }
       },
       "quantity": 2
+    },
+    {
+      "value": {
+        "id": 3,
+        "name": "Salad",
+        "price": {
+          "amount": 35,
+          "currency": "MDL"
+        }
+      },
+      "quantity": 1
     }
   ]
 }
