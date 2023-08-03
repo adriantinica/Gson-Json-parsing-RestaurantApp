@@ -9,8 +9,7 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.ParserConfigurationException;
-import org.xml.sax.SAXException;
+
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,7 +18,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public abstract class jsonStorage {
+public abstract class JSONStorage {
 
     
 
@@ -59,7 +58,7 @@ public abstract class jsonStorage {
         JsonObject price = product.get("price").getAsJsonObject();
         int amount = price.get("amount").getAsInt();
         String currency = price.get("currency").getAsString();
-        Short quantity  = product.get("available").getAsShort();
+        Short quantity  = product.get("quantity").getAsShort();
 
         productsList.add(new Product(id, name, new Money(amount, currency), quantity));
         
@@ -94,17 +93,19 @@ public abstract class jsonStorage {
         }
     }
 
+    
+
    
 
 
-    public static void createOrderJsonFile(Order order) {
+    public static void createOrderJsonFile(JSONOrder order) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(order);
         
 
         try (FileWriter writer = new FileWriter("order.json")) {
-            writer.write(json);
+            writer.write(String.valueOf(json));
            
         } catch (IOException e) {
             e.printStackTrace();
@@ -117,9 +118,19 @@ public abstract class jsonStorage {
 
 
 
-    public static void updateProductsXmlFile(Stock stock)  {
-   }
+    public static void updateProductsJsonFile(Stock stock) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String json = gson.toJson(stock);
+
+        try (FileWriter writer = new FileWriter("products.json")) {
+            writer.write(json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
+
 
 
 
