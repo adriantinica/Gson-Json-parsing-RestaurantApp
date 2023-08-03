@@ -2,7 +2,7 @@ public class Product {
     private Byte id;
     private String name;
     private Money price;
-    private Short quantity;
+    private transient Short quantity;
 
     public Product(Byte id, String name, Money price, Short quantity) {
         this.id = id;
@@ -51,12 +51,5 @@ public class Product {
     public Product getValue() {
         return null;
     }
-
-
-    
-
-    
-
-    
 
 }
