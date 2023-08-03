@@ -1,7 +1,7 @@
 {
   "owner": {
-    "name": "John/Doe",
-    "phoneNumber": 123456789
+    "name": "adr",
+    "phoneNumber": 2
   },
   "items": [
     {
@@ -37,5 +37,9 @@
       },
       "quantity": 1
     }
-  ]
+  ],
+  "totalCost": {
+    "amount": 525,
+    "currency": "MDL"
+  }
 }
